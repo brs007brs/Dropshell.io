@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "framework": null,
+    "buildCommand": "npm run build",
+    "outputDirectory": "public",
+    "functions": {
+        "public/index.php": {
+            "runtime": "vercel-php@0.7.2"
+        }
+    },
+    "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/public/build/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/public/index.php"
+        }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "true",
+        "APP_URL": "https://${VERCEL_URL}",
+        "APP_KEY": "base64:YOUR_APP_KEY_HERE_OR_SET_IN_VERCEL_ENV_VARS"
+    }
+}
